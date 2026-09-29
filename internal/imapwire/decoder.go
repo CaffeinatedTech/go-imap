@@ -902,6 +902,17 @@ func (d *Decoder) DiscardValue() error {
 			return d.errOrSyntax("value")
 		}
 		return lr.Discard()
+	case b == '\\':
+		// A flag-form value, such as Gmail's system labels inside an
+		// X-GM-LABELS list: backslash followed by an atom.
+		if !d.consume() {
+			return d.Err()
+		}
+		var s string
+		if !d.readTokenInto(&s, isAtomChar) {
+			return d.errOrSyntax("value")
+		}
+		return nil
 	case isAstringChar(b):
 		var s string
 		if !d.readTokenInto(&s, isAstringChar) {
