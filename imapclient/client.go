@@ -274,6 +274,13 @@ type Command struct {
 	once sync.Once
 	err  error
 
+	// respCode is the resp-text-code of the tagged OK, "" when the
+	// server sent none. A code can qualify the OK rather than confirm
+	// it: Gmail answers "OK [THROTTLED]" for commands it did not
+	// complete, so callers that must know whether work happened read
+	// this instead of trusting Wait's nil error.
+	respCode string
+
 	collector  commandCollector
 	onComplete taggedCompleteFunc
 }
@@ -813,6 +820,11 @@ func (c *Client) completeTagged(tag string, cond imapwire.RespCond) {
 		}
 	}
 	if cond.Status == "OK" {
+		// Retain the resp-text-code before completion: a code can
+		// qualify the OK rather than confirm it (Gmail's
+		// "OK [THROTTLED]" means the command was not completed), and
+		// RespCode must be readable as soon as Wait returns.
+		cmd.respCode = cond.Text.Code
 		cmd.complete(nil)
 	} else {
 		cmd.complete(responseError(tag, cond))
@@ -836,4 +848,19 @@ func protocolError(err error) *imap.Error {
 		return ierr
 	}
 	return &imap.Error{Type: imap.ErrorTypeProtocol, Text: "invalid server response", Err: err}
+}
+
+// RespCode returns the resp-text-code the server attached to the
+// command's tagged OK — for example "THROTTLED", "APPENDUID 1 5", or
+// "PERMANENTFLAGS". It is "" for a plain OK, for a failed command, and
+// before completion. A code can qualify the OK rather than confirm it:
+// Google's IMAP servers answer "OK [THROTTLED]" when a command was not
+// completed because the account hit its rate limit, so a caller that
+// must know whether its work actually happened checks this instead of
+// relying on [Command.Wait]'s nil error.
+func (cmd *Command) RespCode() string {
+	if cmd == nil {
+		return ""
+	}
+	return cmd.respCode
 }

@@ -158,3 +158,34 @@ func TestStoreUIDGmailLabelsFetchUpdate(t *testing.T) {
 		t.Fatalf("raw label value = %q", got)
 	}
 }
+
+// Gmail answers "OK [THROTTLED]" for commands it did not complete; the
+// code must survive on the Command so callers can treat it as failure
+// even though Wait returns nil.
+func TestRespCodeSurvivesQualifiedOK(t *testing.T) {
+	c, _ := extBDial(t, func(tag, line string) string {
+		return tag + " OK [THROTTLED] not completed\r\n"
+	})
+	extBReady(c, []string{"IMAP4rev1", "X-GM-EXT-1"}, nil, true)
+	cmd := c.StoreUIDGmailLabels(imap.UIDSetNum(7), StoreFlagsAdd, []string{"x"}, nil)
+	if err := cmd.Wait(extBContext(t)); err != nil {
+		t.Fatalf("wait: %v", err)
+	}
+	if got := cmd.RespCode(); got != "THROTTLED" {
+		t.Fatalf("RespCode = %q, want THROTTLED", got)
+	}
+}
+
+func TestRespCodeEmptyOnPlainOK(t *testing.T) {
+	c, _ := extBDial(t, func(tag, line string) string {
+		return tag + " OK done\r\n"
+	})
+	extBReady(c, []string{"IMAP4rev1", "X-GM-EXT-1"}, nil, true)
+	cmd := c.StoreUIDGmailLabels(imap.UIDSetNum(7), StoreFlagsAdd, []string{"x"}, nil)
+	if err := cmd.Wait(extBContext(t)); err != nil {
+		t.Fatalf("wait: %v", err)
+	}
+	if got := cmd.RespCode(); got != "" {
+		t.Fatalf("RespCode = %q, want empty", got)
+	}
+}

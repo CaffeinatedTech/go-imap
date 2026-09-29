@@ -52,6 +52,18 @@ FETCH; the value is an unmodelled parenthesised list and arrives as
 contract). The test covers that round trip, including a system label in
 the value.
 
+## Patch 3: `imapclient/client.go` — `Command.RespCode`
+
+The tagged completion discarded the resp-text-code on success: an
+`OK [THROTTLED]` was indistinguishable from a plain OK. Google's IMAP
+servers answer `OK [THROTTLED]` when a command was **not completed**
+because the account hit its rate limit — a code that qualifies the OK
+rather than confirming it. `Command.RespCode()` now returns the code of
+the tagged OK ("" for plain OK/failure), set before the completion
+channel closes so it is readable as soon as `Wait` returns. The live
+jmap-bridge Gmail gate turned this up: writes "succeeded" while Google
+silently dropped them.
+
 ## Patch 2: `internal/imapwire/decoder.go` — flag-form values
 
 `Decoder.DiscardValue` (the capture primitive behind unmodelled FETCH
