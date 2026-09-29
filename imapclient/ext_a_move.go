@@ -44,6 +44,11 @@ func (o *MoveOptions) allowFallback() bool { return o != nil && o.AllowNonAtomic
 //
 // Construct with keyed fields only; fields may be added in a future release.
 type MoveData struct {
+	// RespCode is the resp-text-code of the tagged OK, "" when the
+	// server sent none. A code can qualify the OK rather than confirm
+	// it: Gmail answers "OK [THROTTLED]" for a move it did not perform.
+	RespCode string
+
 	// UIDPlus is the COPYUID data for the move, or a zero-valued [CopyData]
 	// when the server sent none. RFC 6851 section 4.3 advises a UIDPLUS server
 	// to send COPYUID in an untagged OK before the EXPUNGE responses, which is
@@ -145,6 +150,12 @@ func (c *Client) move(ctx context.Context, uid bool, set, destination string, op
 		}
 		enc.SP().Mailbox(destination)
 	}, moveCollector(data), func(success bool, code, args string) {
+		// The tagged code can qualify the OK rather than confirm it
+		// (Gmail's "OK [THROTTLED]" means the move did not happen), so
+		// it travels with the data for callers that must know.
+		if success {
+			data.RespCode = code
+		}
 		// Prefer the untagged COPYUID already claimed by moveCollector. Some
 		// servers put COPYUID on the tagged OK instead (RFC 4315 section 3).
 		if !success || data.UIDPlus.HasUIDs || !strings.EqualFold(code, string(imap.CodeCopyUID)) {

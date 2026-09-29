@@ -64,6 +64,13 @@ channel closes so it is readable as soon as `Wait` returns. The live
 jmap-bridge Gmail gate turned this up: writes "succeeded" while Google
 silently dropped them.
 
+## Patch 4: `imapclient/ext_a_move.go` — `MoveData.RespCode`
+
+`MoveUID` completes internally and could not surface the tagged response
+code; the Gmail throttle work needed to see `OK [THROTTLED]` on a move
+(a move Google did not perform). `MoveData` now carries the tagged OK's
+resp-text-code, set from the completion callback.
+
 ## Patch 2: `internal/imapwire/decoder.go` — flag-form values
 
 `Decoder.DiscardValue` (the capture primitive behind unmodelled FETCH
