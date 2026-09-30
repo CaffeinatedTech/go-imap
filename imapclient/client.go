@@ -83,6 +83,12 @@ type Options struct {
 	// therefore not counted as retained responses.
 	MaxUntaggedResponses int
 
+	// MaxLineLength bounds one decoded response line, excluding literal
+	// payloads. Zero uses imapwire's default, which accepts the long quoted
+	// BODYSTRUCTURE lines real servers emit; set it to trade interop for a
+	// tighter per-connection memory budget.
+	MaxLineLength int
+
 	_ struct{}
 }
 
@@ -368,6 +374,7 @@ func (o Options) wireOptions() imapwire.Options {
 	return imapwire.Options{
 		ReadTimeout:           readTimeout,
 		MaxUntaggedPerCommand: maxUntagged,
+		MaxLineLength:         o.MaxLineLength,
 	}
 }
 
@@ -847,7 +854,11 @@ func protocolError(err error) *imap.Error {
 	if ierr, ok := err.(*imap.Error); ok {
 		return ierr
 	}
-	return &imap.Error{Type: imap.ErrorTypeProtocol, Text: "invalid server response", Err: err}
+	text := "invalid server response"
+	if err != nil {
+		text += ": " + err.Error()
+	}
+	return &imap.Error{Type: imap.ErrorTypeProtocol, Text: text, Err: err}
 }
 
 // RespCode returns the resp-text-code the server attached to the

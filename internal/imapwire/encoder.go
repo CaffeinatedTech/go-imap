@@ -18,7 +18,10 @@ const literalMinusMaxSize = 4096
 // Once a response line reaches this size, String starts a literal instead of
 // extending the quoted portion. Literal payloads do not count towards the
 // protocol line-length limit and the announcement's CRLF resets the budget.
-const responseQuotedLineBudget = DefaultMaxLineLength / 2
+// It is deliberately independent of DefaultMaxLineLength: the encoder's
+// literalisation point is wire behaviour, while the decoder's line budget is
+// memory containment, and changing one must not silently change the other.
+const responseQuotedLineBudget = 4 << 10
 
 // EncoderOptions configures wire serialisation. The zero value is valid: it
 // selects command-direction synchronising literals and modified UTF-7 mailbox

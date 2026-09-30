@@ -527,6 +527,40 @@ func TestFetchBodyStructure(t *testing.T) {
 	}
 }
 
+func TestFetchLongResponseLineParses(t *testing.T) {
+	// A live Dovecot (2026-09-30) emits BODYSTRUCTURE as one quoted line of
+	// 8.4 KiB with no literal payload; the grammar bounds no untagged
+	// response, so the default client must parse it rather than poison the
+	// session.
+	long := strings.Repeat("x", 9<<10)
+	c, _ := scriptedServer(t,
+		"* 1 FETCH (UID 974 BODYSTRUCTURE (\"TEXT\" \"PLAIN\" "+
+			"(\"NAME\" \""+long+"\") NIL NIL \"7BIT\" 1 42))\r\n"+
+			"$TAG OK done\r\n",
+	)
+	setState(c, StateSelected)
+	cmd := c.Fetch(imap.SeqSetNum(1), nil, &imap.FetchItemBodyStructure{Extended: true})
+	data, err := cmd.Next(testContext(t))
+	if err != nil {
+		t.Fatalf("long untagged FETCH line = %v, want a clean parse", err)
+	}
+	items := data.Items[imap.FetchDataKey("BODYSTRUCTURE")]
+	part, ok := items[0].(*imap.FetchDataBodyStructure)
+	if !ok {
+		t.Fatalf("body structure = %#v", items[0])
+	}
+	single, ok := part.BodyStructure.(*imap.BodyStructureSinglePart)
+	if !ok || single.Params["name"] != long {
+		t.Fatalf("root = %#v, want the 9 KiB name parameter back", part.BodyStructure)
+	}
+	if _, err := cmd.Next(testContext(t)); err != io.EOF {
+		t.Fatalf("second Next = %v, want EOF", err)
+	}
+	if err := cmd.Wait(testContext(t)); err != nil {
+		t.Fatalf("wait = %v", err)
+	}
+}
+
 func TestFetchBodyStructureMultipart(t *testing.T) {
 	c, _ := scriptedServer(t,
 		"* 1 FETCH (BODYSTRUCTURE ("+

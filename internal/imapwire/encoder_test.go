@@ -71,7 +71,7 @@ func TestEncoderNeverQuotesEightBitOrNUL(t *testing.T) {
 }
 
 func TestEncoderResponseStringKeepsLineBounded(t *testing.T) {
-	value := strings.Repeat("a", DefaultMaxLineLength)
+	value := strings.Repeat("a", 2*responseQuotedLineBudget)
 	got, err := encodeWith(t, &EncoderOptions{ServerResponse: true}, func(e *Encoder) {
 		e.Special('(').String(value).Special(')')
 	})

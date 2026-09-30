@@ -18,10 +18,12 @@ const (
 	DefaultMaxBufferedLiteralSize = 8 << 20
 
 	// DefaultMaxLineLength caps a single response line, excluding literal
-	// payloads. RFC 9051 section 4 recommends that a server accept at least
-	// 8000 octets in a command line; responses in practice stay well below
-	// that, and everything bulky arrives as a literal.
-	DefaultMaxLineLength = 8 << 10
+	// payloads. The grammar bounds no untagged response: real servers emit
+	// BODYSTRUCTURE as one long quoted line — 8.4 KiB observed against a
+	// live Dovecot (2026-09-30) — so this is a memory-containment budget
+	// for one buffered line per connection, not an interop assumption.
+	// The command direction keeps its own explicit, tighter limit.
+	DefaultMaxLineLength = 1 << 20
 
 	// DefaultMaxListDepth caps parenthesised-list nesting. The grammar puts no
 	// bound on BODYSTRUCTURE nesting, so a server can otherwise drive the

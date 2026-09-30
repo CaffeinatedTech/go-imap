@@ -104,3 +104,53 @@ code.
    store side needed new API.
 3. Consumer: jmap-bridge (CaffeinatedTech) uses this via a `replace`
    directive until the PR lands, then reverts to the upstream version.
+
+---
+
+# PATCH NOTES — long response lines (second, independent PR)
+
+Found on a live commercial Dovecot (2026-09-30) while gating jmap-bridge
+against a real account: a legitimate FETCH answered one 8401-octet
+`BODYSTRUCTURE` line with no literal payload (a 8.9 MB message with many
+attachments, all quoted parameters). `imapwire`'s default
+`MaxLineLength = 8 << 10` rejected it, the reader treated it as fatal,
+and the poisoned session failed every later command on that connection
+with the same opaque `invalid server response`.
+
+Neither RFC 3501 nor RFC 9051 bounds the length of an untagged response
+line (the 8192 figure that motivated the default is the command
+direction's recommendation; it appears in neither RFC's response
+grammar). Servers in practice emit long quoted BODYSTRUCTURE lines.
+
+## Patches
+
+1. `internal/imapwire/options.go` — `DefaultMaxLineLength` raised to
+   `1 << 20`: a memory-containment budget for one buffered line per
+   connection, not an interop assumption. The command direction is
+   unaffected: `imapserver` always sets its own explicit
+   `MaxCommandLineBytes`.
+2. `internal/imapwire/encoder.go` — `responseQuotedLineBudget` fixed at
+   `4 << 10` instead of `DefaultMaxLineLength / 2`: the encoder's
+   literalisation point is wire behaviour and must not drift when the
+   decode budget changes. (Keeps the server module byte-for-byte as
+   before; `TestEncoderResponseStringKeepsLineBounded` now sizes its
+   fixture off the budget, not the default.)
+3. `imapclient/client.go` — `Options.MaxLineLength` passthrough for
+   callers who want a tighter cap, and `protocolError` now appends the
+   wrapped cause to `Text` (the old shape hid the real parse error
+   behind "invalid server response" and cost hours on the live gate).
+4. `imapclient/regression_test.go` —
+   `TestFetchLongResponseLineParses`: 9 KiB quoted BODYSTRUCTURE line
+   parses on a default client.
+
+Branch: this sits uncommitted on `feat/gmail-labels-store` and should be
+cut to its own branch from `main` for a separate PR — the Gmail-label PR
+plan above stays "one PR, two commits".
+
+## Testing
+
+- `go test ./imapclient/ ./internal/imapwire/ ./internal/imapcodec/
+  ./imapserver/` green (the `internal/unicodenorm` failure is the known
+  toolchain-skew note above, unrelated).
+- Live: full EXAMINE + batched header backfill over every folder, plus a
+  body-fetch pass, clean against the server that reproduced the bug.
