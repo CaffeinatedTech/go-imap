@@ -6,7 +6,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and
 this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 Two conventions are specific to this project, and both exist to serve the goal
-in `CLAUDE.md` — reaching a v1.0 that does not have to break for the next RFC:
+in `AGENTS.md` — reaching a v1.0 that does not have to break for the next RFC:
 
 - **Every entry that touches an exported symbol says so explicitly**, naming the
   symbol. That is what makes the `apidiff` job's output reviewable rather than

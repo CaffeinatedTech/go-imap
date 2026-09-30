@@ -3,7 +3,7 @@
 // that the root API is frozen and this one is not, and one go.mod cannot carry
 // two different promises.
 //
-// The require below is the one sanctioned exception to CLAUDE.md's
+// The require below is the one sanctioned exception to AGENTS.md's
 // zero-dependency rule: a self-referential dependency on our own root module,
 // at a real released version rather than a replace directive. It is bumped
 // deliberately on each root release this module wants to pick up.

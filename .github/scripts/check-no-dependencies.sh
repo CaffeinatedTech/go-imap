@@ -4,7 +4,7 @@
 #
 # This assertion *is* the zero-dependency policy. Without it the policy erodes
 # on the first convenient import, and every erosion is a `go.sum` entry — a
-# stability liability this project does not control. See CLAUDE.md, "Zero
+# stability liability this project does not control. See AGENTS.md, "Zero
 # external dependencies": the rule covers test-only dependencies too, which is
 # why the check looks at the whole module graph and not just the build list.
 #

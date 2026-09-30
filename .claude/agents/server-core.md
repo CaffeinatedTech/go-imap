@@ -25,7 +25,7 @@ external backend and there is no fix but a new major version.
 > A new extension may add a **new optional interface**. It may never add a method
 > to an existing one — mandatory or optional.
 
-This is the server's version of the question in `CLAUDE.md`. Nine existing RFCs
+This is the server's version of the question in `AGENTS.md`. Nine existing RFCs
 (CONDSTORE, QRESYNC, OBJECTID, ACL, QUOTA, METADATA, SORT/THREAD, SAVEDATE,
 PREVIEW) each want a method group on the backend. If the mandatory interfaces can
 grow, the abstraction breaks nine times before it meets an RFC nobody has

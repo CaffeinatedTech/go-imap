@@ -27,7 +27,7 @@ env:
   # CI tools are pinned. They are not module requirements — see
   # check-no-dependencies.sh — but `@latest` still means an upstream release can
   # turn main red with no commit here, and apidiff in particular is the gate
-  # CLAUDE.md calls the deliverable. A gate that changes underneath you is not a
+  # AGENTS.md calls the deliverable. A gate that changes underneath you is not a
   # gate. Bumping these is a commit, which is the point.
   #
   # Keep these values identical to the sibling go-smtp repository's ci.yml.

@@ -61,7 +61,7 @@ func TestWriteTimeoutUnblocksStalledCommand(t *testing.T) {
 }
 
 // Every protocol failure reaches the caller as *imap.Error. A write timeout is
-// not an exception: see rule 5 in CLAUDE.md.
+// not an exception: see rule 5 in AGENTS.md.
 func TestWriteTimeoutSurfacesAsImapError(t *testing.T) {
 	c := deafServer(t, 150*time.Millisecond)
 

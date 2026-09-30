@@ -174,7 +174,7 @@ var imaptestError = regexp.MustCompile(`(?i)\b(error|failed|mismatch|invalid|une
 // They are listed rather than filtered away wholesale because the point of this
 // test is to catch the *next* finding. A blanket "ignore errors" would make the
 // run permanently green and permanently useless; an unconditional failure would
-// make it permanently red, which CLAUDE.md says is a matrix nobody reads.
+// make it permanently red, which AGENTS.md says is a matrix nobody reads.
 // Deleting an entry here when the underlying bug is fixed is the intended
 // lifecycle — and if the bug regresses, the entry stops matching nothing and
 // starts matching again, which no assertion would have caught either way, so

@@ -126,7 +126,7 @@ type saslprepCell struct {
 // each mechanism a live server advertises. It never asserts that one server
 // behavior is correct — RFC 5802 mandates SASLprep, but this project is not
 // willing to add client-side normalization on the strength of the RFC text
-// alone (see CLAUDE.md). It fails only when a single mechanism accepts
+// alone (see AGENTS.md). It fails only when a single mechanism accepts
 // neither form, which cannot be a normalization signal: the account was
 // provisioned with the raw form, so at least one of the two must succeed
 // unless the account itself is broken.

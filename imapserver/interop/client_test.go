@@ -16,7 +16,7 @@ package interop
 // it. What they do keep is its two standing rules:
 //
 //   - Absent tooling SKIPS, never fails. A permanently red matrix is a matrix
-//     nobody reads (CLAUDE.md). podman missing, an image that will not build,
+//     nobody reads (AGENTS.md). podman missing, an image that will not build,
 //     no network for the base image — all skips.
 //   - A protocol failure once the client is running is OUR bug and fails, since
 //     unlike a third-party server container we control both halves.

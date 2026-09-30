@@ -105,7 +105,7 @@ in an untagged `FLAGS` response. See `docs/INTEROP.md`.
 | `docs/INTEROP.md` | Server matrix and how to run it |
 | `docs/ROADMAP.md` | Milestones and exit criteria |
 | `docs/SERVER-DESIGN.md` | Approved server framework design |
-| `CLAUDE.md` | Working rules for AI agents contributing here |
+| `AGENTS.md` | Working rules for AI agents contributing here |
 
 ## Testing
 

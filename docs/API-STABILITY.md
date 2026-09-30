@@ -396,7 +396,7 @@ dependency. Two objections raised against it do not survive contact:
 Fallback, if the nested module proves unworkable in practice: same-module with a
 documented stability exception — needing its own separate approval.
 
-Per `CLAUDE.md`, this needed explicit written approval from the human before it
+Per `AGENTS.md`, this needed explicit written approval from the human before it
 became real, and it has that approval now. `imapserver/go.mod` and the root
 `go.work` are T25's to create, at v1.0.
 
@@ -704,7 +704,7 @@ have matched nothing — a NOTIFY registration that silently never fires, which 
 client reads as "nothing has changed".
 
 **The vocabulary moved to `package imap`** (`notify.go`) and the server dropped
-its copies. This is the layering rule in CLAUDE.md applied rather than restated:
+its copies. This is the layering rule in AGENTS.md applied rather than restated:
 the root package is "the shared vocabulary, which is what lets the future server
 framework reuse it without an API break."
 
@@ -789,6 +789,6 @@ identity is not.
 ## Reviewing against this document
 
 The `api-guardian` agent (`.claude/agents/api-guardian.md`) reviews every diff
-that touches an exported symbol. Its single question is the one from CLAUDE.md:
+that touches an exported symbol. Its single question is the one from AGENTS.md:
 *can the next RFC be added without breaking this?* It has authority to reject a
 functionally correct change.

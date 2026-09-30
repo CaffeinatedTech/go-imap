@@ -6,7 +6,7 @@
 //   - TestSASLprepDiagnostic is a diagnostic, not a conformance check: it
 //     empirically determines whether Dovecot and Stalwart, as configured by
 //     this harness, apply SASLprep/NFKC normalization to passwords at
-//     enrollment or comparison time. See docs/INTEROP.md and CLAUDE.md for
+//     enrollment or comparison time. See docs/INTEROP.md and AGENTS.md for
 //     the project's skip-vs-fail rule, which this package follows.
 //   - TestPrepareCredentialsInterop is a hard-assertion conformance check
 //     of imapclient.AuthenticateOptions.PrepareCredentials against the

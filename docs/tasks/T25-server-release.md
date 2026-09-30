@@ -29,7 +29,7 @@ Concretely:
   server wants to pick up — not a `replace` directive left in place for
   production consumption.
 - This is the **one** sanctioned exception to the zero-dependency rule
-  (`CLAUDE.md`) — a self-referential `go.sum` entry on our own root module,
+  (`AGENTS.md`) — a self-referential `go.sum` entry on our own root module,
   which §9 argues is a narrow, fully-controlled exception rather than a hole in
   the policy. Do not read it as license for any other dependency.
 - Two tags per release going forward when both modules move together: e.g.
@@ -70,7 +70,7 @@ is about catching *unintended* breaks, not enforcing v1 semantics prematurely).
 - Nothing here reopens `package imap` — that froze at v1.0, before T18 ever
   started. If documenting the server surface surfaces a wish to change a root
   package type, that is a new finding against a frozen API and needs the same
-  written-exception process `CLAUDE.md` requires generally, not a quiet fix
+  written-exception process `AGENTS.md` requires generally, not a quiet fix
   folded into this task.
 - No example or doc comment may imply `imapserver`'s v0.x carries the root
   module's v1 stability guarantee — say the opposite, explicitly, since it is

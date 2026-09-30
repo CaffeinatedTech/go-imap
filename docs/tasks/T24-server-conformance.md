@@ -86,7 +86,7 @@ does not reach any of them:
 ## Non-negotiables
 
 - Interop tests **skip** on absent capability, never fail — the standing rule
-  from `CLAUDE.md` applies identically to server-side interop.
+  from `AGENTS.md` applies identically to server-side interop.
 - Fuzz targets follow `docs/tasks/T13`'s policy: discovered, not hand-listed;
   campaigned, not merely present.
 - No test in this task may weaken or route around the resource limits from §8

@@ -3,6 +3,11 @@
 Goal: a complete, correct, **stable** IMAP client library for Go.
 Module path: `github.com/CaffeinatedTech/go-imap`.
 
+This repository is a **hard fork** of `github.com/kiliant/go-imap`, taken at
+upstream `main` and maintained by CaffeinatedTech. Upstream's rules below still
+govern the fork; `README.md` and `PATCH-NOTES.md` record the provenance and what
+diverges.
+
 ## The one goal that shapes every decision
 
 The reference implementation in this ecosystem has been in beta for years. It did
@@ -82,14 +87,16 @@ design, M6 implementation). v1.0 was tagged on 2026-08-06 after T17's
 bidirectional audit; T18–T24 built the codec, the framework, the base command
 set, the extensions and the conformance/interop coverage between 2026-08-12 and
 2026-08-14. The root `imap` and `imapclient` APIs are frozen; `imapserver` is a
-nested module on the approved v0.x line — see "Two modules" below.
+nested module on the approved v0.x line — see "Two modules" below. This fork's
+current release line is root `v1.2.x` and `imapserver/v0.2.x`; see
+`CHANGELOG.md`.
 
 ## Zero external dependencies
 
 The standard library only. A `go.sum` entry is a stability liability we do not
 control. This applies to SASL, DEFLATE and charset decoding — all are reachable
 with stdlib. Test-only dependencies are also disallowed; the interop harness
-shells out to `podman`.
+shells out to a container runtime — `podman` preferred, `docker` fallback.
 
 ## Two modules
 
@@ -115,27 +122,41 @@ tagged before the server module can be.
 
 - `go test ./...` in **each module** — unit tests, no network, must stay fast.
   `for dir in $(.github/scripts/modules.sh); do (cd "$dir" && go test ./...); done`
-  is the whole of it, and is what CI runs.
-- Run `go test -count=1 -race -tags=interop ./imapclient`, then separately run
+  is the whole of it, and is what the enabled `CI` workflow runs.
+- Interop is a **container-backed suite, run on demand**, not on every push: run
+  `go test -count=1 -race -tags=interop ./imapclient`, then separately run
   `go test -count=1 -race -tags=interop ./interop/...`, then separately run
   `go test -count=1 -race -tags=interop ./imapserver/interop/...` — the first two
-  drive real servers under podman, including interop-tagged production-client
-  tests; the third is the inverse, measuring our own server as a matrix entry and
-  driving real third-party clients (`imaptest`, `mbsync`) against it. The
-  commands must remain sequential because separate package test processes own
-  independent harness lifecycles and could otherwise collide on container names.
-  `.github/scripts/run-interop.sh` runs all three in order, which is what CI
-  uses. See `docs/INTEROP.md`. Requires a running podman machine.
+  drive real servers under a container runtime, including interop-tagged
+  production-client tests; the third is the inverse, measuring our own server as
+  a matrix entry and driving real third-party clients (`imaptest`, `mbsync`)
+  against it. The commands must remain sequential because separate package test
+  processes own independent harness lifecycles and could otherwise collide on
+  container names. `.github/scripts/run-interop.sh` runs all three in order. See
+  `docs/INTEROP.md`. Requires a container runtime.
 - Interop tests **skip** on absent server capabilities, never fail. A permanently
   red matrix is a matrix nobody reads.
 - Every parser gets a fuzz target. Malformed input from a hostile server must not
   panic; internal codecs return an error and the public client boundary returns
   an `*imap.Error`.
 
-Host note: development is on darwin/arm64 with podman. The M2 acceptance servers
-(Dovecot, Stalwart, GreenMail) are arm64-native; their harness expense tiers are
-documented separately in `docs/INTEROP.md`. Apache James is amd64-only and runs
-emulated behind `-tags=interop_emulated`.
+## CI on this fork
+
+Upstream ran three workflows on every push — `CI`, `Interop` and `Fuzz (long)`.
+This fork enables only **`CI`** (build, vet, apidiff, per-module `go test ./...`).
+`Interop` and `Fuzz (long)` remain in `.github/workflows/` but are **disabled in
+repository settings**, so they run neither on push nor on their nightly cron.
+Re-enable or dispatch them from the Actions tab on a container-capable host; the
+local gates remain the release bar regardless.
+
+Host note: upstream development was darwin/arm64 with podman; this fork is
+maintained on linux/amd64. The interop harness discovers its engine itself
+(`podman` preferred, `docker` fallback). This host has the docker CLI but no
+accessible daemon and no podman, so interop is not part of the routine local loop
+here — run it where a container runtime works when touching the wire code or the
+harness. Of the upstream M2 acceptance servers, Apache James is the only
+amd64-only image (emulated behind `-tags=interop_emulated` on arm64 hosts); on
+amd64 it runs native. Expense tiers are in `docs/INTEROP.md`.
 
 ## Plan vs state
 
