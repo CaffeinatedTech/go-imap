@@ -16,7 +16,7 @@ stable v1.0 are compatible goals rather than competing ones.
 import "github.com/CaffeinatedTech/go-imap/imapclient"
 ```
 
-> **Status: root v1.2.0 and imapserver v0.2.0 released by this fork** (upstream
+> **Status: root v1.2.2 and imapserver v0.2.1 released by this fork** (upstream
 > tags: root v1.1.0, imapserver v0.1.0). The exported API of `package imap` and
 > `package imapclient` is frozen under the compatibility policy in
 > `docs/API-STABILITY.md`; the separately versioned server framework remains

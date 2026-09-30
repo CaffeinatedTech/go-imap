@@ -15,4 +15,4 @@ module github.com/CaffeinatedTech/go-imap/imapserver
 
 go 1.24
 
-require github.com/CaffeinatedTech/go-imap v1.2.0
+require github.com/CaffeinatedTech/go-imap v1.2.2

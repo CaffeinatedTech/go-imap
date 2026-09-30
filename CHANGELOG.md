@@ -21,7 +21,7 @@ in `CLAUDE.md` — reaching a v1.0 that does not have to break for the next RFC:
   that does not say which module it belongs to does not say whether it was
   allowed. See `docs/RELEASING.md`.
 
-## [v1.2.0] — fork
+## [v1.2.2] — fork
 
 Hard fork of `github.com/kiliant/go-imap`, maintained as
 `github.com/CaffeinatedTech/go-imap` and taken at upstream `main`. Module paths
