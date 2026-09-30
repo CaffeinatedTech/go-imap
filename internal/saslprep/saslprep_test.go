@@ -251,7 +251,7 @@ func TestBidiRandALCatOnlyBothEnds(t *testing.T) {
 // the package doc comment's explanation.
 func TestUnicodeVersionAssumption(t *testing.T) {
 	// U+00AA is assigned in Unicode 3.2 (so it's absent from Table A.1)
-	// and has an NFKC mapping to "a" under Unicode 15.0.0 (see
+	// and has an NFKC mapping to "a" under Unicode 17.0.0 (see
 	// TestRFC4013Examples): both facts must hold simultaneously for
 	// SASLprep to behave as RFC 4013 documents, which is only possible
 	// because of the deliberate version split documented in this

@@ -91,10 +91,10 @@ code.
   the new `TestStoreUIDGmailLabels*` cases (wire form per table,
   capability gate writes nothing, .SILENT placement, empty-set and
   invalid-op rejection, FetchDataRaw round trip).
-- Full `go test ./...` green except `internal/unicodenorm`, which is a
-  pre-existing toolchain skew on this machine (Go 1.25's
-  `unicode.Version` is 17.0.0, the shipped tables were generated from
-  UCD 15.0.0) and is unrelated to these patches.
+- Full `go test ./...` green. (The fork also regenerated
+  `internal/unicodenorm` to UCD 17.0.0 and made its version guard
+  one-directional, so the suite is green on both the Go floor and a
+  newer toolchain; see `CHANGELOG.md`.)
 
 ## Fork maintenance
 

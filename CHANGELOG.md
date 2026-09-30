@@ -61,6 +61,16 @@ divergence.
 
 ## [Unreleased]
 
+### Root module — `github.com/CaffeinatedTech/go-imap`
+
+#### Changed
+
+- `internal/unicodenorm`: NFC/NFKC tables regenerated from Unicode 17.0.0 (was
+  15.0.0) and the conformance corpus refreshed to match. The toolchain-version
+  guard is now one-directional — it fails only when the tables lag
+  `unicode.Version`, not when the toolchain is older than the tables — so one
+  table set still builds and tests on the Go floor as well as newer toolchains.
+
 ### Server module — `github.com/CaffeinatedTech/go-imap/imapserver`
 
 #### Added

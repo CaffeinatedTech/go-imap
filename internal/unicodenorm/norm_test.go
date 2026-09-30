@@ -10,24 +10,52 @@ import (
 	"unicode"
 )
 
-// TestUnicodeVersionMatchesTables guards against a silent skew between the
-// Go toolchain's Unicode data and the UCD version tables.go was generated
-// from. If this fails, the Go toolchain has moved to a new Unicode version:
-// internal/unicodenorm/tables.go must be regenerated (see
-// internal/unicodenorm/gen/main.go) against the matching UCD release, and
-// the full conformance suite (TestNFCConformance) re-run and reviewed
-// before the new tables are committed.
+// TestUnicodeVersionMatchesTables guards against a silent skew between the Go
+// toolchain's Unicode data and the UCD version tables.go was generated from.
+//
+// The invariant is deliberately one-directional: the tables must not lag the
+// toolchain. A toolchain NEWER than the tables (unicode.Version > wantVersion)
+// means the tables are missing decompositions for newly assigned code points
+// and must be regenerated. A toolchain OLDER than the tables is harmless — this
+// package normalises from its own committed tables and never consults the
+// standard library at run time — which is what lets one table set serve a Go
+// floor older than the toolchain that generated it (see the test matrix in
+// .github/workflows/ci.yml).
 func TestUnicodeVersionMatchesTables(t *testing.T) {
-	const wantVersion = "15.0.0"
-	if unicode.Version != wantVersion {
+	const wantVersion = "17.0.0"
+	if compareUnicodeVersions(unicode.Version, wantVersion) > 0 {
 		t.Fatalf(
-			"unicode.Version = %q, but internal/unicodenorm/tables.go was generated from UCD %s; "+
-				"the Go toolchain's Unicode version has moved. Regenerate tables.go by running "+
+			"unicode.Version = %q is newer than the UCD version tables.go was generated from (%s); "+
+				"the tables now lag the Go toolchain's Unicode data. Regenerate tables.go by running "+
 				"`go run internal/unicodenorm/gen/main.go` against the UCD release matching "+
-				"unicode.Version (%s), then re-run the full conformance suites "+
+				"unicode.Version (%s), refresh internal/unicodenorm/testdata/NormalizationTest.txt.gz "+
+				"to the same release, then re-run the full conformance suites "+
 				"(TestNFCConformance and TestNFKCConformance) before committing the new tables.",
 			unicode.Version, wantVersion, unicode.Version)
 	}
+}
+
+// compareUnicodeVersions compares two dotted numeric Unicode versions such as
+// "15.0.0" and "17.0.0", returning -1, 0 or 1.
+func compareUnicodeVersions(a, b string) int {
+	as := strings.Split(a, ".")
+	bs := strings.Split(b, ".")
+	for i := 0; i < len(as) || i < len(bs); i++ {
+		av, bv := 0, 0
+		if i < len(as) {
+			av, _ = strconv.Atoi(as[i])
+		}
+		if i < len(bs) {
+			bv, _ = strconv.Atoi(bs[i])
+		}
+		if av != bv {
+			if av < bv {
+				return -1
+			}
+			return 1
+		}
+	}
+	return 0
 }
 
 // TestCompatDecompose is a small sanity check on the fully expanded
@@ -151,7 +179,7 @@ func parseCodePoints(t *testing.T, field string) string {
 }
 
 // TestNFCConformance runs the official Unicode NormalizationTest.txt suite
-// (version 15.0.0) and checks the NFC invariants documented in the file's
+// (version 17.0.0) and checks the NFC invariants documented in the file's
 // own header:
 //
 //	source; NFC; NFD; NFKC; NFKD
@@ -220,7 +248,7 @@ func TestNFCConformance(t *testing.T) {
 }
 
 // TestNFKCConformance runs the official Unicode NormalizationTest.txt suite
-// (version 15.0.0) and checks the NFKC invariant documented in the file's
+// (version 17.0.0) and checks the NFKC invariant documented in the file's
 // own header:
 //
 //	source; NFC; NFD; NFKC; NFKD

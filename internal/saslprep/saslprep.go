@@ -39,9 +39,7 @@
 //
 // The NFKC normalization step, by contrast, uses
 // [github.com/CaffeinatedTech/go-imap/internal/unicodenorm], whose tables are
-// generated from Unicode 15.0.0 (matching the Go toolchain's
-// unicode.Version at the time it was generated -- see
-// internal/unicodenorm/gen/main.go).
+// generated from Unicode 17.0.0 (see internal/unicodenorm/gen/main.go).
 //
 // These two Unicode versions are deliberately different, and this is not a
 // bug to "fix": every practical SASLprep implementation (including the
@@ -164,7 +162,7 @@ var prohibitedTables = []prohibitedTable{
 // NFKC normalization, per the step order in the package doc comment (Map,
 // Normalize, Prohibit, Check bidi) and in RFC 3454 Section 3. One
 // consequence, not a bug: a code point unassigned in Unicode 3.2 whose
-// Unicode 15.0.0 NFKC compatibility decomposition folds entirely to
+// Unicode 17.0.0 NFKC compatibility decomposition folds entirely to
 // assigned characters (plausible for some post-3.2 compatibility
 // characters, e.g. certain superscript/subscript letters) will pass
 // PrepareStored, because by the time this check runs, that code point is

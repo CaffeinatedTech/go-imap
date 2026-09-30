@@ -107,12 +107,13 @@ a dependency, so the rule holds without an exception. The generators live in
 `go generate` reaching the network during a build would reintroduce exactly the
 fragility the rule exists to prevent.
 
-The table versions differ on purpose: normalisation tracks the toolchain's
-`unicode.Version` (15.0.0), while the RFC 3454 tables stay frozen at Unicode 3.2
-as that RFC requires. RFC 3454 §7's assigned/unassigned split exists precisely so
-a stringprep profile need not follow new Unicode releases.
+The table versions differ on purpose: normalisation is generated from Unicode
+17.0.0, while the RFC 3454 tables stay frozen at Unicode 3.2 as that RFC
+requires. RFC 3454 §7's assigned/unassigned split exists precisely so a
+stringprep profile need not follow new Unicode releases.
 
-The interop harness shells out to `podman` rather than using a container SDK.
+The interop harness shells out to a container runtime (`podman` preferred,
+`docker` fallback) rather than using a container SDK.
 
 ## Connection model
 

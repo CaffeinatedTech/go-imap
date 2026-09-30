@@ -1,8 +1,9 @@
 // Package unicodenorm implements Unicode Normalization Forms C and KC (NFC,
 // NFKC) using generated tables derived from the Unicode Character Database
-// (UCD), version 15.0.0 (matching the standard library's unicode.Version on
-// the toolchain this package was generated with). It uses only the Go
-// standard library: no external dependencies, no golang.org/x/text.
+// (UCD), version 17.0.0. The tables are self-contained, so they serve any Go
+// toolchain at or below the Unicode version they were generated from (see
+// TestUnicodeVersionMatchesTables). It uses only the Go standard library: no
+// external dependencies, no golang.org/x/text.
 //
 // Both forms follow UAX #15 (Unicode Normalization Forms) and share the
 // same last two steps; they differ only in the decomposition step:
