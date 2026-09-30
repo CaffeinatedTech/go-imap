@@ -26,8 +26,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/kiliant/go-imap/imapserver"
-	"github.com/kiliant/go-imap/imapserver/memory"
+	"github.com/CaffeinatedTech/go-imap/imapserver"
+	"github.com/CaffeinatedTech/go-imap/imapserver/memory"
 )
 
 // TestMain adds the suite-teardown leak detection §7 asks for. Both checks are
@@ -66,7 +66,7 @@ func tempSpoolFiles() []string {
 func leakedGoroutines() string {
 	for attempt := range 50 {
 		stacks := goroutineStacks()
-		if !strings.Contains(stacks, "kiliant/go-imap") {
+		if !strings.Contains(stacks, "CaffeinatedTech/go-imap") {
 			return ""
 		}
 		if attempt == 49 {
@@ -90,7 +90,7 @@ func goroutineStacks() string {
 			strings.Contains(stack, "_testmain.go") {
 			continue
 		}
-		if strings.Contains(stack, "kiliant/go-imap") {
+		if strings.Contains(stack, "CaffeinatedTech/go-imap") {
 			interesting = append(interesting, stack)
 		}
 	}

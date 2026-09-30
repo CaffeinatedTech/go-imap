@@ -6,9 +6,9 @@ import (
 	"io"
 	"testing"
 
-	"github.com/kiliant/go-imap"
-	"github.com/kiliant/go-imap/imapserver"
-	"github.com/kiliant/go-imap/imapserver/backendtest"
+	"github.com/CaffeinatedTech/go-imap"
+	"github.com/CaffeinatedTech/go-imap/imapserver"
+	"github.com/CaffeinatedTech/go-imap/imapserver/backendtest"
 )
 
 func TestBackendConformance(t *testing.T) {

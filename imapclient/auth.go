@@ -9,10 +9,10 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/kiliant/go-imap"
-	"github.com/kiliant/go-imap/internal/imapsasl"
-	"github.com/kiliant/go-imap/internal/imapwire"
-	"github.com/kiliant/go-imap/internal/saslprep"
+	"github.com/CaffeinatedTech/go-imap"
+	"github.com/CaffeinatedTech/go-imap/internal/imapsasl"
+	"github.com/CaffeinatedTech/go-imap/internal/imapwire"
+	"github.com/CaffeinatedTech/go-imap/internal/saslprep"
 )
 
 // SASLMechanism is a caller-supplied SASL exchange. Next receives each decoded

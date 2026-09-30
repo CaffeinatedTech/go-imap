@@ -4,7 +4,7 @@ import (
 	"errors"
 	"strings"
 
-	"github.com/kiliant/go-imap"
+	"github.com/CaffeinatedTech/go-imap"
 )
 
 // Deferred group E capabilities: CONVERT (RFC 5259), IMAPSIEVE= (RFC 6785),

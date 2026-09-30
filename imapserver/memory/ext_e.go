@@ -11,8 +11,8 @@ import (
 	"io"
 	"strings"
 
-	"github.com/kiliant/go-imap"
-	"github.com/kiliant/go-imap/imapserver"
+	"github.com/CaffeinatedTech/go-imap"
+	"github.com/CaffeinatedTech/go-imap/imapserver"
 )
 
 // Group E support: LANGUAGE (RFC 5255) and URLAUTH (RFC 4467).

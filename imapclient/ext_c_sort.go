@@ -8,8 +8,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/kiliant/go-imap"
-	"github.com/kiliant/go-imap/internal/imapwire"
+	"github.com/CaffeinatedTech/go-imap"
+	"github.com/CaffeinatedTech/go-imap/internal/imapwire"
 )
 
 // SortKey is one sort key of a SORT command. It is an alias for [imap.SortKey],

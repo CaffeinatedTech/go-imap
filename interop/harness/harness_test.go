@@ -5,7 +5,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/kiliant/go-imap/interop/definition"
+	"github.com/CaffeinatedTech/go-imap/interop/definition"
 )
 
 func TestProfilesAreValidAndPinned(t *testing.T) {

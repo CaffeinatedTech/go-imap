@@ -7,7 +7,7 @@ import (
 	"io"
 	"strings"
 
-	"github.com/kiliant/go-imap/interop/definition"
+	"github.com/CaffeinatedTech/go-imap/interop/definition"
 )
 
 // Fixture is a repeatable message used to seed every server.

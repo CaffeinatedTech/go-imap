@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/kiliant/go-imap"
+	"github.com/CaffeinatedTech/go-imap"
 )
 
 func collectFetch(t *testing.T, cmd *SyncFetchCommand) []*imap.FetchMessageData {

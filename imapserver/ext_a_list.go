@@ -6,9 +6,9 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/kiliant/go-imap"
-	"github.com/kiliant/go-imap/internal/imapcodec"
-	"github.com/kiliant/go-imap/internal/imapwire"
+	"github.com/CaffeinatedTech/go-imap"
+	"github.com/CaffeinatedTech/go-imap/internal/imapcodec"
+	"github.com/CaffeinatedTech/go-imap/internal/imapwire"
 )
 
 // LIST-EXTENDED (RFC 5258), LIST-STATUS (RFC 5819), CHILDREN (RFC 3348) and

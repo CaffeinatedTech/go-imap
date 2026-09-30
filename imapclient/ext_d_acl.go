@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/kiliant/go-imap"
-	"github.com/kiliant/go-imap/internal/imapwire"
+	"github.com/CaffeinatedTech/go-imap"
+	"github.com/CaffeinatedTech/go-imap/internal/imapwire"
 )
 
 // Aliases for the ACL vocabulary, which now lives in [package imap] so that

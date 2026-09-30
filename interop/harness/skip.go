@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/kiliant/go-imap/interop/definition"
+	"github.com/CaffeinatedTech/go-imap/interop/definition"
 )
 
 // MissingExpectedCapabilities returns profile promises absent from the live

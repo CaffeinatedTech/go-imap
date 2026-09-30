@@ -4,8 +4,8 @@ Two modules, two version lines, one repository.
 
 | Module | Path | Line | Promise |
 |---|---|---|---|
-| root | `github.com/kiliant/go-imap` | `v1.x.y` | frozen; an incompatible change fails CI |
-| server | `github.com/kiliant/go-imap/imapserver` | `imapserver/v0.a.b` | may break between minors, deliberately |
+| root | `github.com/CaffeinatedTech/go-imap` | `v1.x.y` | frozen; an incompatible change fails CI |
+| server | `github.com/CaffeinatedTech/go-imap/imapserver` | `imapserver/v0.a.b` | may break between minors, deliberately |
 
 The split and its reasoning are `SERVER-DESIGN.md` §9, approved with the design.
 The short version: one `go.mod` cannot carry two different compatibility
@@ -70,7 +70,7 @@ required version it cannot run, and the script says so out loud rather than
 reporting a pass it did not perform:
 
 ```
-SKIP: module graph unresolvable because github.com/kiliant/go-imap is not published yet.
+SKIP: module graph unresolvable because github.com/CaffeinatedTech/go-imap is not published yet.
 ```
 
 **After tagging the root module, run it again and confirm that line is gone.**
@@ -83,7 +83,7 @@ The gate that catches what the others cannot — that the tag is fetchable, the
 
 ```sh
 cd "$(mktemp -d)" && go mod init example.com/check \
-  && go get github.com/kiliant/go-imap/imapserver@v0.1.0
+  && go get github.com/CaffeinatedTech/go-imap/imapserver@v0.1.0
 ```
 
 Do this from outside the repository. Inside it, the workspace answers instead of

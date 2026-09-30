@@ -4,12 +4,12 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/kiliant/go-imap/interop/definition"
-	"github.com/kiliant/go-imap/interop/servers/courier"
-	"github.com/kiliant/go-imap/interop/servers/cyrus"
-	"github.com/kiliant/go-imap/interop/servers/dovecot"
-	"github.com/kiliant/go-imap/interop/servers/greenmail"
-	"github.com/kiliant/go-imap/interop/servers/stalwart"
+	"github.com/CaffeinatedTech/go-imap/interop/definition"
+	"github.com/CaffeinatedTech/go-imap/interop/servers/courier"
+	"github.com/CaffeinatedTech/go-imap/interop/servers/cyrus"
+	"github.com/CaffeinatedTech/go-imap/interop/servers/dovecot"
+	"github.com/CaffeinatedTech/go-imap/interop/servers/greenmail"
+	"github.com/CaffeinatedTech/go-imap/interop/servers/stalwart"
 )
 
 // Profiles returns a fresh copy of the profiles enabled by the current build

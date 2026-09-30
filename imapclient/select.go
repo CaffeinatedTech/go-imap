@@ -6,8 +6,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/kiliant/go-imap"
-	"github.com/kiliant/go-imap/internal/imapwire"
+	"github.com/CaffeinatedTech/go-imap"
+	"github.com/CaffeinatedTech/go-imap/internal/imapwire"
 )
 
 // SelectOptions configures SELECT and EXAMINE. The zero value is valid.

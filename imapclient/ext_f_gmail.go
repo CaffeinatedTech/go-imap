@@ -1,10 +1,10 @@
 package imapclient
 
 import (
-	"github.com/kiliant/go-imap"
+	"github.com/CaffeinatedTech/go-imap"
 	"strings"
 
-	"github.com/kiliant/go-imap/internal/imapwire"
+	"github.com/CaffeinatedTech/go-imap/internal/imapwire"
 )
 
 // This file implements the Gmail-specific label store (X-GM-EXT-1). Gmail

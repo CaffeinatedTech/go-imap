@@ -9,9 +9,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/kiliant/go-imap"
-	"github.com/kiliant/go-imap/imapclient"
-	"github.com/kiliant/go-imap/interop/harness"
+	"github.com/CaffeinatedTech/go-imap"
+	"github.com/CaffeinatedTech/go-imap/imapclient"
+	"github.com/CaffeinatedTech/go-imap/interop/harness"
 )
 
 // interopDial dials server, using implicit TLS when its profile requires

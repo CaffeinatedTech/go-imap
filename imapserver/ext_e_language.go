@@ -3,7 +3,7 @@ package imapserver
 import (
 	"context"
 
-	"github.com/kiliant/go-imap/internal/imapwire"
+	"github.com/CaffeinatedTech/go-imap/internal/imapwire"
 )
 
 // LANGUAGE and I18NLEVEL (RFC 5255), and the referral capabilities of RFC 2221

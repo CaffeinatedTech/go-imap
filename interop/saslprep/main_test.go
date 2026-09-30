@@ -24,10 +24,10 @@ import (
 	"os"
 	"testing"
 
-	"github.com/kiliant/go-imap/interop/definition"
-	"github.com/kiliant/go-imap/interop/harness"
-	"github.com/kiliant/go-imap/interop/servers/dovecot"
-	"github.com/kiliant/go-imap/interop/servers/stalwart"
+	"github.com/CaffeinatedTech/go-imap/interop/definition"
+	"github.com/CaffeinatedTech/go-imap/interop/harness"
+	"github.com/CaffeinatedTech/go-imap/interop/servers/dovecot"
+	"github.com/CaffeinatedTech/go-imap/interop/servers/stalwart"
 )
 
 func TestMain(m *testing.M) {

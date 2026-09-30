@@ -8,8 +8,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/kiliant/go-imap/imapclient"
-	"github.com/kiliant/go-imap/interop/harness"
+	"github.com/CaffeinatedTech/go-imap/imapclient"
+	"github.com/CaffeinatedTech/go-imap/interop/harness"
 )
 
 func TestMain(m *testing.M) {

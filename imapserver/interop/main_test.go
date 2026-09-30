@@ -6,9 +6,9 @@ import (
 	"os"
 	"testing"
 
-	serverinterop "github.com/kiliant/go-imap/imapserver/interop"
-	"github.com/kiliant/go-imap/interop/definition"
-	"github.com/kiliant/go-imap/interop/harness"
+	serverinterop "github.com/CaffeinatedTech/go-imap/imapserver/interop"
+	"github.com/CaffeinatedTech/go-imap/interop/definition"
+	"github.com/CaffeinatedTech/go-imap/interop/harness"
 )
 
 // The profile is passed in rather than discovered. harness.Profiles() is the

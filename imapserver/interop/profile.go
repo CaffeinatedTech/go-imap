@@ -43,9 +43,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/kiliant/go-imap/imapserver"
-	"github.com/kiliant/go-imap/imapserver/memory"
-	"github.com/kiliant/go-imap/interop/definition"
+	"github.com/CaffeinatedTech/go-imap/imapserver"
+	"github.com/CaffeinatedTech/go-imap/imapserver/memory"
+	"github.com/CaffeinatedTech/go-imap/interop/definition"
 )
 
 // The credentials and mailbox layout the harness seeds with. They are the

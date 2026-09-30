@@ -8,10 +8,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/kiliant/go-imap"
-	"github.com/kiliant/go-imap/imapclient"
-	"github.com/kiliant/go-imap/imapserver"
-	"github.com/kiliant/go-imap/imapserver/memory"
+	"github.com/CaffeinatedTech/go-imap"
+	"github.com/CaffeinatedTech/go-imap/imapclient"
+	"github.com/CaffeinatedTech/go-imap/imapserver"
+	"github.com/CaffeinatedTech/go-imap/imapserver/memory"
 )
 
 // Group A is exercised against the real client wherever the client models the

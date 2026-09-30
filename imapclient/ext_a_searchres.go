@@ -3,7 +3,7 @@ package imapclient
 import (
 	"fmt"
 
-	"github.com/kiliant/go-imap"
+	"github.com/CaffeinatedTech/go-imap"
 )
 
 // SavedSearchResult refers to the server-side "$" marker holding the result of

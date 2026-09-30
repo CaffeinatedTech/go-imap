@@ -10,9 +10,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/kiliant/go-imap"
-	"github.com/kiliant/go-imap/imapserver"
-	"github.com/kiliant/go-imap/internal/imapmessage"
+	"github.com/CaffeinatedTech/go-imap"
+	"github.com/CaffeinatedTech/go-imap/imapserver"
+	"github.com/CaffeinatedTech/go-imap/internal/imapmessage"
 )
 
 // Group C support: SORT and THREAD (RFC 5256).

@@ -8,8 +8,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/kiliant/go-imap"
-	"github.com/kiliant/go-imap/internal/imapwire"
+	"github.com/CaffeinatedTech/go-imap"
+	"github.com/CaffeinatedTech/go-imap/internal/imapwire"
 )
 
 // CompressOptions configures COMPRESS. A nil pointer selects DEFLATE, the only

@@ -4,7 +4,7 @@ import (
 	"context"
 	"strings"
 
-	"github.com/kiliant/go-imap"
+	"github.com/CaffeinatedTech/go-imap"
 )
 
 // SearchReturnRelevancy requests FUZZY relevancy scores in an ESEARCH response.

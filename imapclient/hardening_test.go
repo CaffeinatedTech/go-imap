@@ -9,9 +9,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/kiliant/go-imap"
-	"github.com/kiliant/go-imap/internal/imapwire"
-	"github.com/kiliant/go-imap/interop/harness/adversarial"
+	"github.com/CaffeinatedTech/go-imap"
+	"github.com/CaffeinatedTech/go-imap/internal/imapwire"
+	"github.com/CaffeinatedTech/go-imap/interop/harness/adversarial"
 )
 
 func TestClientReadDeadline(t *testing.T) {

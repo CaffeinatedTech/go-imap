@@ -3,7 +3,7 @@ package imapclient
 import (
 	"testing"
 
-	"github.com/kiliant/go-imap"
+	"github.com/CaffeinatedTech/go-imap"
 )
 
 // TestSearchNeedsCharsetDescendsIntoContainers pins the CHARSET guard against

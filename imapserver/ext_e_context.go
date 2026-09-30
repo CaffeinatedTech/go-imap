@@ -6,8 +6,8 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/kiliant/go-imap"
-	"github.com/kiliant/go-imap/internal/imapwire"
+	"github.com/CaffeinatedTech/go-imap"
+	"github.com/CaffeinatedTech/go-imap/internal/imapwire"
 )
 
 // ESORT and CONTEXT=SEARCH / CONTEXT=SORT (RFC 5267).

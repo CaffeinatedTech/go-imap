@@ -7,8 +7,8 @@ import (
 	"net"
 	"strings"
 
-	"github.com/kiliant/go-imap"
-	"github.com/kiliant/go-imap/internal/imapwire"
+	"github.com/CaffeinatedTech/go-imap"
+	"github.com/CaffeinatedTech/go-imap/internal/imapwire"
 )
 
 // Dial connects to an IMAP server without TLS. Prefer [DialTLS] or

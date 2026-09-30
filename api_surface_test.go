@@ -14,15 +14,15 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/kiliant/go-imap/imapclient"
+	"github.com/CaffeinatedTech/go-imap/imapclient"
 )
 
 var apiPackages = []struct {
 	importPath string
 	dir        string
 }{
-	{"github.com/kiliant/go-imap", "."},
-	{"github.com/kiliant/go-imap/imapclient", "imapclient"},
+	{"github.com/CaffeinatedTech/go-imap", "."},
+	{"github.com/CaffeinatedTech/go-imap/imapclient", "imapclient"},
 }
 
 func TestAPISurfaceNoInternalLeak(t *testing.T) {
@@ -38,19 +38,19 @@ func TestAPISurfaceNoInternalLeak(t *testing.T) {
 		path string
 		dir  string
 	}{
-		{"github.com/kiliant/go-imap/internal/unicodenorm", "internal/unicodenorm"},
-		{"github.com/kiliant/go-imap/internal/imapwire", "internal/imapwire"},
-		{"github.com/kiliant/go-imap/internal/imapsasl", "internal/imapsasl"},
-		{"github.com/kiliant/go-imap/internal/saslprep", "internal/saslprep"},
-		{"github.com/kiliant/go-imap", "."},
-		{"github.com/kiliant/go-imap/internal/imapcodec", "internal/imapcodec"},
-		{"github.com/kiliant/go-imap/imapclient", "imapclient"},
+		{"github.com/CaffeinatedTech/go-imap/internal/unicodenorm", "internal/unicodenorm"},
+		{"github.com/CaffeinatedTech/go-imap/internal/imapwire", "internal/imapwire"},
+		{"github.com/CaffeinatedTech/go-imap/internal/imapsasl", "internal/imapsasl"},
+		{"github.com/CaffeinatedTech/go-imap/internal/saslprep", "internal/saslprep"},
+		{"github.com/CaffeinatedTech/go-imap", "."},
+		{"github.com/CaffeinatedTech/go-imap/internal/imapcodec", "internal/imapcodec"},
+		{"github.com/CaffeinatedTech/go-imap/imapclient", "imapclient"},
 	} {
 		typeCheckDir(t, fset, pkg.path, pkg.dir, imp)
 	}
 
 	seen := make(map[types.Type]struct{})
-	for _, path := range []string{"github.com/kiliant/go-imap", "github.com/kiliant/go-imap/imapclient"} {
+	for _, path := range []string{"github.com/CaffeinatedTech/go-imap", "github.com/CaffeinatedTech/go-imap/imapclient"} {
 		t.Run(path, func(t *testing.T) {
 			walkExportedObjects(t, path, imp.local[path], seen)
 		})

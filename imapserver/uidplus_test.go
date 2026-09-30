@@ -12,7 +12,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/kiliant/go-imap/imapserver"
+	"github.com/CaffeinatedTech/go-imap/imapserver"
 )
 
 var appendUIDPattern = regexp.MustCompile(`\[APPENDUID \d+ (\d+)\]`)

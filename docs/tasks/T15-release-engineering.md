@@ -73,7 +73,7 @@ explicitly. This is what makes the apidiff output reviewable rather than noise.
    the code rather than trusting the table
 5. CHANGELOG updated; examples compile
 6. Tag; from a clean temporary consumer module, run `go mod init`,
-   `go get github.com/kiliant/go-imap@<tag>`, then compile and test a small
+   `go get github.com/CaffeinatedTech/go-imap@<tag>`, then compile and test a small
    import of the library
 7. Verify the pkg.go.dev entry renders
 

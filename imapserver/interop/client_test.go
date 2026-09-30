@@ -34,7 +34,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/kiliant/go-imap/interop/harness"
+	"github.com/CaffeinatedTech/go-imap/interop/harness"
 )
 
 // containerRuntime is the engine these tests drive and, more importantly, how a

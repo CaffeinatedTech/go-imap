@@ -10,8 +10,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/kiliant/go-imap/imapclient"
-	"github.com/kiliant/go-imap/interop/harness"
+	"github.com/CaffeinatedTech/go-imap/imapclient"
+	"github.com/CaffeinatedTech/go-imap/interop/harness"
 )
 
 // TestCapabilityEnableInterop verifies the post-auth capability refresh on all

@@ -3,7 +3,7 @@ package imapserver
 import (
 	"context"
 
-	"github.com/kiliant/go-imap"
+	"github.com/CaffeinatedTech/go-imap"
 )
 
 func handleMove(ctx context.Context, c *conn, command *queuedCommand) error {

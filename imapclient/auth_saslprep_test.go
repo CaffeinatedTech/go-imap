@@ -10,7 +10,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/kiliant/go-imap"
+	"github.com/CaffeinatedTech/go-imap"
 )
 
 // runAuthenticate drives a minimal fake server over net.Pipe that captures

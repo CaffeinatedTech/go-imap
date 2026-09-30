@@ -13,8 +13,8 @@ import (
 	"os"
 	"os/signal"
 
-	"github.com/kiliant/go-imap/imapserver"
-	"github.com/kiliant/go-imap/imapserver/memory"
+	"github.com/CaffeinatedTech/go-imap/imapserver"
+	"github.com/CaffeinatedTech/go-imap/imapserver/memory"
 )
 
 // serverAddr is where the example server listens. Port 1143 rather than 143:

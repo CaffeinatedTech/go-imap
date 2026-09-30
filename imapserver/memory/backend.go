@@ -14,8 +14,8 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/kiliant/go-imap"
-	"github.com/kiliant/go-imap/imapserver"
+	"github.com/CaffeinatedTech/go-imap"
+	"github.com/CaffeinatedTech/go-imap/imapserver"
 )
 
 // Options configures a memory backend. A nil pointer selects an empty backend.

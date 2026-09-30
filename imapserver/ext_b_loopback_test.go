@@ -5,7 +5,7 @@ import (
 	"context"
 	"net"
 
-	"github.com/kiliant/go-imap/imapclient"
+	"github.com/CaffeinatedTech/go-imap/imapclient"
 	"regexp"
 	"strconv"
 	"strings"

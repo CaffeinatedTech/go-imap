@@ -8,7 +8,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/kiliant/go-imap"
+	"github.com/CaffeinatedTech/go-imap"
 )
 
 // deafServer answers the greeting and then never reads again. net.Pipe is

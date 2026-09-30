@@ -8,9 +8,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/kiliant/go-imap/imapclient"
-	"github.com/kiliant/go-imap/imapserver"
-	"github.com/kiliant/go-imap/imapserver/memory"
+	"github.com/CaffeinatedTech/go-imap/imapclient"
+	"github.com/CaffeinatedTech/go-imap/imapserver"
+	"github.com/CaffeinatedTech/go-imap/imapserver/memory"
 )
 
 // Group D is administrative surface: quota roots, access control lists,

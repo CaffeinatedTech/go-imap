@@ -6,8 +6,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/kiliant/go-imap"
-	"github.com/kiliant/go-imap/internal/imapwire"
+	"github.com/CaffeinatedTech/go-imap"
+	"github.com/CaffeinatedTech/go-imap/internal/imapwire"
 )
 
 // WriteSearchCriteria writes criterion in the top-level SEARCH position.

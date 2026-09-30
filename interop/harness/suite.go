@@ -11,7 +11,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/kiliant/go-imap/interop/definition"
+	"github.com/CaffeinatedTech/go-imap/interop/definition"
 )
 
 var (

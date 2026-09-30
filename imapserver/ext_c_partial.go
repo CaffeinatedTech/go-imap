@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/kiliant/go-imap/internal/imapwire"
+	"github.com/CaffeinatedTech/go-imap/internal/imapwire"
 )
 
 // PARTIAL (RFC 9394): returning a window of a search result rather than all of

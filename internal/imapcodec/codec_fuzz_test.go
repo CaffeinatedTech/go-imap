@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/kiliant/go-imap/internal/imapwire"
+	"github.com/CaffeinatedTech/go-imap/internal/imapwire"
 )
 
 func FuzzReadSearchCriteria(f *testing.F) {

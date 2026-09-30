@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"slices"
 
-	"github.com/kiliant/go-imap"
-	"github.com/kiliant/go-imap/internal/imapwire"
+	"github.com/CaffeinatedTech/go-imap"
+	"github.com/CaffeinatedTech/go-imap/internal/imapwire"
 )
 
 // I18NLEVEL=2 and the COMPARATOR command (RFC 5255 section 4), and FILTERS

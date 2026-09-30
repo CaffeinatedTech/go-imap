@@ -3,7 +3,7 @@ package imapclient
 import (
 	"testing"
 
-	"github.com/kiliant/go-imap/internal/imapwire"
+	"github.com/CaffeinatedTech/go-imap/internal/imapwire"
 )
 
 // A hostile server must not be able to panic the client through the ENVELOPE or

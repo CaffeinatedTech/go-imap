@@ -4,8 +4,8 @@ import (
 	"context"
 	"io"
 
-	"github.com/kiliant/go-imap"
-	"github.com/kiliant/go-imap/imapserver"
+	"github.com/CaffeinatedTech/go-imap"
+	"github.com/CaffeinatedTech/go-imap/imapserver"
 )
 
 type externalBackend struct{}

@@ -1,6 +1,6 @@
 package courier
 
-import "github.com/kiliant/go-imap/interop/definition"
+import "github.com/CaffeinatedTech/go-imap/interop/definition"
 
 // Profile is the locally built Courier interoperability configuration.
 var Profile = definition.Profile{

@@ -12,7 +12,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/kiliant/go-imap"
+	"github.com/CaffeinatedTech/go-imap"
 )
 
 func TestFetchBodySectionStreamsAndParsesHeaderFields(t *testing.T) {

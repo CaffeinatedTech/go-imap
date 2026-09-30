@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/kiliant/go-imap/interop/harness/adversarial"
+	"github.com/CaffeinatedTech/go-imap/interop/harness/adversarial"
 )
 
 func TestRawSessionRejectsHostileResponses(t *testing.T) {

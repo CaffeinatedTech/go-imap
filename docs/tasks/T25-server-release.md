@@ -24,7 +24,7 @@ Concretely:
   root for development ergonomics (interdependent-module development without
   committing `replace` directives) — this is explicitly what makes the nested
   module workable in practice, per §9.
-- `imapserver`'s `go.mod` requires the root module (`github.com/kiliant/go-imap`)
+- `imapserver`'s `go.mod` requires the root module (`github.com/CaffeinatedTech/go-imap`)
   at a real released version, bumped deliberately on each root release the
   server wants to pick up — not a `replace` directive left in place for
   production consumption.

@@ -5,8 +5,8 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/kiliant/go-imap"
-	"github.com/kiliant/go-imap/imapserver"
+	"github.com/CaffeinatedTech/go-imap"
+	"github.com/CaffeinatedTech/go-imap/imapserver"
 )
 
 // Group A capability support: CHILDREN (RFC 3348), SPECIAL-USE and

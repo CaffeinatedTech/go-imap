@@ -5,7 +5,7 @@ import (
 	"slices"
 	"testing"
 
-	"github.com/kiliant/go-imap"
+	"github.com/CaffeinatedTech/go-imap"
 )
 
 // TestStatusReplyNarrowsToRequestedItems covers the guarantee written on

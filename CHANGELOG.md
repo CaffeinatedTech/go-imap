@@ -21,9 +21,47 @@ in `CLAUDE.md` — reaching a v1.0 that does not have to break for the next RFC:
   that does not say which module it belongs to does not say whether it was
   allowed. See `docs/RELEASING.md`.
 
+## [v1.2.0] — fork
+
+Hard fork of `github.com/kiliant/go-imap`, maintained as
+`github.com/CaffeinatedTech/go-imap` and taken at upstream `main`. Module paths
+are now `github.com/CaffeinatedTech/go-imap` (root, `v1.x`) and
+`.../imapserver` (`imapserver/v0.x`). Upstream history, MIT licence and
+copyright notice are retained (see `LICENSE`); `PATCH-NOTES.md` records the
+divergence.
+
+### Root module — `github.com/CaffeinatedTech/go-imap`
+
+#### Added
+
+- `imapclient.Client.StoreUIDGmailLabels`: capability-gated `X-GM-LABELS` store,
+  encoding the two shapes Gmail sends (system labels as flags, user labels as
+  mailbox-name astrings) and honouring `.SILENT`.
+- `imapclient.Options.MaxLineLength`: per-client override of the decoded
+  response-line budget.
+- `imapclient.Command.RespCode` and `imapclient.MoveData.RespCode`: the tagged
+  completion's resp-text-code, so `OK [THROTTLED]` is distinguishable from a
+  plain OK.
+
+#### Changed
+
+- `internal/imapwire`: `DefaultMaxLineLength` raised from 8 KiB to 1 MiB —
+  long quoted `BODYSTRUCTURE` lines are legal and occur on live servers — and
+  the encoder's literalisation budget decoupled from it.
+- `internal/imapwire`: `DiscardValue` accepts flag-form values, so unmodelled
+  FETCH items such as `X-GM-LABELS` round-trip with their leading `\`.
+- Protocol errors now include the wrapped cause in their text.
+
+### Server module — `github.com/CaffeinatedTech/go-imap/imapserver`
+
+#### Changed
+
+- Module path renamed only; the code at this tag is upstream `main` at the fork
+  point.
+
 ## [Unreleased]
 
-### Server module — `github.com/kiliant/go-imap/imapserver`
+### Server module — `github.com/CaffeinatedTech/go-imap/imapserver`
 
 #### Added
 
@@ -62,7 +100,7 @@ in `CLAUDE.md` — reaching a v1.0 that does not have to break for the next RFC:
 
 ## [1.1.0] - 2026-08-21
 
-### Root module — `github.com/kiliant/go-imap`
+### Root module — `github.com/CaffeinatedTech/go-imap`
 
 #### Added
 
@@ -93,7 +131,7 @@ in `CLAUDE.md` — reaching a v1.0 that does not have to break for the next RFC:
 
 ## [imapserver/v0.1.0] - 2026-08-21
 
-### Server module — `github.com/kiliant/go-imap/imapserver`
+### Server module — `github.com/CaffeinatedTech/go-imap/imapserver`
 
 First released on 2026-08-21.
 
@@ -393,7 +431,7 @@ previous `imapserver/v*` tag.
   One real, if cosmetic, cost: `go doc ./imapclient` no longer lists the methods
   of an aliased type, since Go attributes them to the defining package. Look for
   `StatusData.Number` and `SyncStoreData.HasModified` (and `ESearchData.Partial`
-  / `RelevancyScores` below) under `go doc github.com/kiliant/go-imap`, not under
+  / `RelevancyScores` below) under `go doc github.com/CaffeinatedTech/go-imap`, not under
   `imapclient` — they are still callable exactly as before, just documented one
   package over.
 

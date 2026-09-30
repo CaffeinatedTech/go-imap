@@ -3,8 +3,8 @@ package imapclient
 import (
 	"testing"
 
-	"github.com/kiliant/go-imap"
-	"github.com/kiliant/go-imap/internal/imapwire"
+	"github.com/CaffeinatedTech/go-imap"
+	"github.com/CaffeinatedTech/go-imap/internal/imapwire"
 )
 
 // A hostile or merely broken server must not be able to panic the client

@@ -12,8 +12,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/kiliant/go-imap"
-	"github.com/kiliant/go-imap/imapserver"
+	"github.com/CaffeinatedTech/go-imap"
+	"github.com/CaffeinatedTech/go-imap/imapserver"
 )
 
 // Controls supplies backend-specific pathological-state hooks to the suite.

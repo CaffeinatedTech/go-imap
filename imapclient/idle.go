@@ -7,7 +7,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/kiliant/go-imap"
+	"github.com/CaffeinatedTech/go-imap"
 )
 
 const (

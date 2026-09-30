@@ -9,8 +9,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/kiliant/go-imap/imapserver"
-	"github.com/kiliant/go-imap/imapserver/memory"
+	"github.com/CaffeinatedTech/go-imap/imapserver"
+	"github.com/CaffeinatedTech/go-imap/imapserver/memory"
 )
 
 // Whole-server fuzzing. The decoder targets in internal/imapwire and

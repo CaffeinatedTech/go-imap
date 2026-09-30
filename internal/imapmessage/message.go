@@ -15,7 +15,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/kiliant/go-imap"
+	"github.com/CaffeinatedTech/go-imap"
 )
 
 var errStopScan = fmt.Errorf("imapmessage: stop scan")

@@ -5,7 +5,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/kiliant/go-imap"
+	"github.com/CaffeinatedTech/go-imap"
 )
 
 func TestReferralParse(t *testing.T) {

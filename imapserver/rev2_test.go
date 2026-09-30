@@ -16,7 +16,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/kiliant/go-imap/imapserver"
+	"github.com/CaffeinatedTech/go-imap/imapserver"
 )
 
 // rev2Session is an authenticated connection with IMAP4rev2 enabled.

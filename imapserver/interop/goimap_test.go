@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/kiliant/go-imap/interop/harness"
+	"github.com/CaffeinatedTech/go-imap/interop/harness"
 )
 
 // TestProfileHolds is the row this entry contributes to the matrix: our server,

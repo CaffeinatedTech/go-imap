@@ -7,7 +7,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/kiliant/go-imap/interop/harness"
+	"github.com/CaffeinatedTech/go-imap/interop/harness"
 )
 
 // prepareInteropAccount is one of the two SASLprep-discriminating accounts.

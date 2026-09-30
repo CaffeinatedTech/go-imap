@@ -1,7 +1,7 @@
 package imapclient
 
 import (
-	"github.com/kiliant/go-imap"
+	"github.com/CaffeinatedTech/go-imap"
 )
 
 // UIDOnlyEnabled reports whether ENABLE UIDONLY succeeded in this session.

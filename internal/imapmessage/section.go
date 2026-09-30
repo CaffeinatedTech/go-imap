@@ -6,7 +6,7 @@ import (
 	"io"
 	"strings"
 
-	"github.com/kiliant/go-imap"
+	"github.com/CaffeinatedTech/go-imap"
 )
 
 type segment struct {

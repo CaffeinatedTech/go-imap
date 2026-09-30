@@ -147,7 +147,7 @@ Not in `imapclient` (inverts the graph), not in `package imap` (which performs
 no I/O). So:
 
 ```
-github.com/kiliant/go-imap        package imap          vocabulary, no I/O
+github.com/CaffeinatedTech/go-imap        package imap          vocabulary, no I/O
     ├── internal/imapwire         grammar primitives, both directions
     ├── internal/imapcodec        semantic codec for imap types, BOTH directions
     ├── internal/imapmessage      message analysis: generation + evaluation (§5)

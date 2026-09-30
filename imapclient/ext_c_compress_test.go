@@ -11,7 +11,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/kiliant/go-imap"
+	"github.com/CaffeinatedTech/go-imap"
 )
 
 func TestCompressDeflateLargeFetch(t *testing.T) {

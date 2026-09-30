@@ -1,19 +1,26 @@
 # go-imap
 
+> **Fork notice.** This is a fork of
+> [`github.com/kiliant/go-imap`](https://github.com/kiliant/go-imap) (itself a
+> descendant of [`github.com/emersion/go-imap`](https://github.com/emersion/go-imap)),
+> taken at kiliant's `main` and maintained here by CaffeinatedTech. It adds the
+> two patches jmap-bridge needs — Gmail `X-GM-LABELS` writes and tolerance for
+> long quoted response lines — recorded in `PATCH-NOTES.md`. Upstream's MIT
+> licence and copyright notice are retained unchanged; see `LICENSE`. Credit for
+> the library and its design belongs to the upstream authors.
+
 An IMAP client library for Go, built so that complete capability coverage and a
 stable v1.0 are compatible goals rather than competing ones.
 
 ```
-import "github.com/kiliant/go-imap/imapclient"
+import "github.com/CaffeinatedTech/go-imap/imapclient"
 ```
 
-> **Status: root v1.1.0 and imapserver v0.1.0 released.** The exported API of
-> `package imap` and
+> **Status: root v1.2.0 and imapserver v0.2.0 released by this fork** (upstream
+> tags: root v1.1.0, imapserver v0.1.0). The exported API of `package imap` and
 > `package imapclient` is frozen under the compatibility policy in
 > `docs/API-STABILITY.md`; the separately versioned server framework remains
-> deliberately v0.x. Both 2026-08-21 release tags are SSH-signed, and the server
-> release passed standalone-module, dependency-graph, full CI and clean-consumer
-> import gates. See `docs/RELEASING.md` and `docs/ROADMAP.md`.
+> deliberately v0.x. See `docs/RELEASING.md` and `docs/ROADMAP.md`.
 
 ## The design constraint
 

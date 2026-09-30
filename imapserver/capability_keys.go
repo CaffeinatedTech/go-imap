@@ -3,7 +3,7 @@ package imapserver
 import (
 	"fmt"
 
-	"github.com/kiliant/go-imap"
+	"github.com/CaffeinatedTech/go-imap"
 )
 
 // Capability gating for search keys and fetch items

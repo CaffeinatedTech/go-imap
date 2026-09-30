@@ -1,14 +1,14 @@
-# PATCH NOTES — Gmail label store (temporary doc for the upstream PR)
+# PATCH NOTES
 
-This checkout is a fork of `github.com/kiliant/go-imap` carrying two
-patches jmap-bridge needs for Gmail label writes (X-GM-EXT-1). The
-patches are deliberately small and self-contained so they can go
-upstream as one PR; this file is a temporary home for the reasoning
-that belongs in that PR, and should be deleted once it is merged.
+This repository is a hard fork of `github.com/kiliant/go-imap`, maintained
+as `github.com/CaffeinatedTech/go-imap`. It is not proposed upstream;
+this file records what diverges from upstream and why, so the fork stays
+reviewable and can be re-diffed on the next upstream sync.
 
-Branch: `feat/gmail-labels-store`, cut from `main` (the root module —
-imapclient, imapwire — is identical to v1.1.0; main only adds
-imapserver work, which these patches do not touch).
+The fork is taken at kiliant's `main`. The root module (imapclient,
+internal/imapwire) is identical to upstream v1.1.0; the patches below
+touch only root-module files, so `imapserver` is unchanged from upstream
+`main` apart from the module-path rename.
 
 ## Background
 
@@ -96,14 +96,15 @@ code.
   `unicode.Version` is 17.0.0, the shipped tables were generated from
   UCD 15.0.0) and is unrelated to these patches.
 
-## PR plan
+## Fork maintenance
 
-1. One PR, two commits: the decoder fix, then the command + tests.
-2. Mention in the PR that fetch-side X-GM-LABELS / X-GM-THRID requests
-   already work through the open-ended `FetchItemKeyword`; only the
-   store side needed new API.
-3. Consumer: jmap-bridge (CaffeinatedTech) uses this via a `replace`
-   directive until the PR lands, then reverts to the upstream version.
+1. Upstream is not being asked to take these patches; this is a hard
+   fork maintained by CaffeinatedTech.
+2. Fetch-side X-GM-LABELS / X-GM-THRID requests already work through
+   the open-ended `FetchItemKeyword`; only the store side needed new
+   API.
+3. Consumer: jmap-bridge (CaffeinatedTech) depends on
+   `github.com/CaffeinatedTech/go-imap` directly.
 
 ---
 
@@ -143,9 +144,8 @@ grammar). Servers in practice emit long quoted BODYSTRUCTURE lines.
    `TestFetchLongResponseLineParses`: 9 KiB quoted BODYSTRUCTURE line
    parses on a default client.
 
-Branch: this sits uncommitted on `feat/gmail-labels-store` and should be
-cut to its own branch from `main` for a separate PR — the Gmail-label PR
-plan above stays "one PR, two commits".
+Applied on `main` as its own commit, separate from the Gmail-label patch
+set above.
 
 ## Testing
 

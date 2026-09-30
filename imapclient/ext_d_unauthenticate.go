@@ -4,7 +4,7 @@ import (
 	"context"
 	"strings"
 
-	"github.com/kiliant/go-imap"
+	"github.com/CaffeinatedTech/go-imap"
 )
 
 // UnauthenticateOptions configures UNAUTHENTICATE. A nil pointer selects the

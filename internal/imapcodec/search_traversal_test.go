@@ -9,7 +9,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/kiliant/go-imap"
+	"github.com/CaffeinatedTech/go-imap"
 )
 
 // criteriaInterface is the marker every search key implements.

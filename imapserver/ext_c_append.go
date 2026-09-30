@@ -7,8 +7,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/kiliant/go-imap"
-	"github.com/kiliant/go-imap/internal/imapwire"
+	"github.com/CaffeinatedTech/go-imap"
+	"github.com/CaffeinatedTech/go-imap/internal/imapwire"
 )
 
 // MULTIAPPEND (RFC 3502) and CATENATE (RFC 4469).

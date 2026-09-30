@@ -1,8 +1,8 @@
 package imapclient
 
 import (
-	"github.com/kiliant/go-imap"
-	"github.com/kiliant/go-imap/internal/imapwire"
+	"github.com/CaffeinatedTech/go-imap"
+	"github.com/CaffeinatedTech/go-imap/internal/imapwire"
 )
 
 // StoreFlagsOp selects whether STORE replaces, adds, or removes flags.

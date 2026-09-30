@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/kiliant/go-imap/internal/unicodenorm"
+	"github.com/CaffeinatedTech/go-imap/internal/unicodenorm"
 )
 
 // TestRFC4013Examples runs the worked examples from RFC 4013 Section 3

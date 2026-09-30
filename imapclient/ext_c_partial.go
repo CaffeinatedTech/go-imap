@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/kiliant/go-imap"
-	"github.com/kiliant/go-imap/internal/imapwire"
+	"github.com/CaffeinatedTech/go-imap"
+	"github.com/CaffeinatedTech/go-imap/internal/imapwire"
 )
 
 // PartialRange selects a slice of SEARCH/FETCH results by 1-based index into

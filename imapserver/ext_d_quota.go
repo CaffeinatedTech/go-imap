@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/kiliant/go-imap"
-	"github.com/kiliant/go-imap/internal/imapwire"
+	"github.com/CaffeinatedTech/go-imap"
+	"github.com/CaffeinatedTech/go-imap/internal/imapwire"
 )
 
 // QUOTA, QUOTA=RES-* and QUOTASET (RFC 9208).

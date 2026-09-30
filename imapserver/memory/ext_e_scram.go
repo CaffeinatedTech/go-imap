@@ -9,7 +9,7 @@ import (
 	"hash"
 	"strings"
 
-	"github.com/kiliant/go-imap/imapserver"
+	"github.com/CaffeinatedTech/go-imap/imapserver"
 )
 
 // SCRAM credential storage for the reference backend.

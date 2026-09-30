@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/kiliant/go-imap/interop/definition"
+	"github.com/CaffeinatedTech/go-imap/interop/definition"
 )
 
 // The in-process branch of the harness.

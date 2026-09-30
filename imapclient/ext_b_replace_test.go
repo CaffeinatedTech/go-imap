@@ -5,7 +5,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/kiliant/go-imap"
+	"github.com/CaffeinatedTech/go-imap"
 )
 
 const replaceMessage = "Subject: replacement\r\n\r\nbody\r\n"

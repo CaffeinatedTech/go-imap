@@ -4,7 +4,7 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/kiliant/go-imap"
+	"github.com/CaffeinatedTech/go-imap"
 )
 
 func TestSelectedMessageLimitSurvivesLaterUpdates(t *testing.T) {

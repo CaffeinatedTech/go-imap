@@ -1,7 +1,7 @@
 # go-imap — agent working rules
 
 Goal: a complete, correct, **stable** IMAP client library for Go.
-Module path: `github.com/kiliant/go-imap`.
+Module path: `github.com/CaffeinatedTech/go-imap`.
 
 ## The one goal that shapes every decision
 
@@ -63,7 +63,7 @@ Anything that violates these needs an explicit, written exception in
 ## Layering
 
 ```
-github.com/kiliant/go-imap            package imap        core types, errors (no I/O)
+github.com/CaffeinatedTech/go-imap            package imap        core types, errors (no I/O)
         ├── internal/imapwire         lexer, decoder, encoder — NEVER exported
         ├── internal/imapcodec        bidirectional semantic codec
         ├── internal/imapmessage      message analysis and SEARCH evaluation
@@ -97,8 +97,8 @@ Since T25 the repository holds two modules with independent version lines:
 
 | Module | Path | Line | Promise |
 |---|---|---|---|
-| root | `github.com/kiliant/go-imap` | `v1.x.y` | frozen; an incompatible change fails CI |
-| server | `github.com/kiliant/go-imap/imapserver` | `imapserver/v0.a.b` | may break between minors, deliberately |
+| root | `github.com/CaffeinatedTech/go-imap` | `v1.x.y` | frozen; an incompatible change fails CI |
+| server | `github.com/CaffeinatedTech/go-imap/imapserver` | `imapserver/v0.a.b` | may break between minors, deliberately |
 
 A committed `go.work` covers both, so ordinary work needs no `replace`
 directive. **`./...` stops at the module boundary**, which is the one thing to

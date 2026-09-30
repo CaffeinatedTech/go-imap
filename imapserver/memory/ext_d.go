@@ -5,8 +5,8 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/kiliant/go-imap"
-	"github.com/kiliant/go-imap/imapserver"
+	"github.com/CaffeinatedTech/go-imap"
+	"github.com/CaffeinatedTech/go-imap/imapserver"
 )
 
 // Group D support: QUOTA and QUOTASET (RFC 9208), ACL (RFC 4314), METADATA

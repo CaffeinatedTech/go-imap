@@ -6,7 +6,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/kiliant/go-imap/interop/harness"
+	"github.com/CaffeinatedTech/go-imap/interop/harness"
 )
 
 func TestMain(m *testing.M) {

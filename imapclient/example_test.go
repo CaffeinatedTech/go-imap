@@ -8,8 +8,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/kiliant/go-imap"
-	"github.com/kiliant/go-imap/imapclient"
+	"github.com/CaffeinatedTech/go-imap"
+	"github.com/CaffeinatedTech/go-imap/imapclient"
 )
 
 func ExampleDial_connectAndList() {

@@ -8,8 +8,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/kiliant/go-imap"
-	"github.com/kiliant/go-imap/imapserver"
+	"github.com/CaffeinatedTech/go-imap"
+	"github.com/CaffeinatedTech/go-imap/imapserver"
 )
 
 // Conformance for the optional interfaces T23 added.

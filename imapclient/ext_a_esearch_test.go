@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/kiliant/go-imap"
+	"github.com/CaffeinatedTech/go-imap"
 )
 
 const esearchCapabilities = "* PREAUTH [CAPABILITY IMAP4REV1 ESEARCH SEARCHRES WITHIN] ready"

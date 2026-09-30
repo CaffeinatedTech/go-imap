@@ -54,7 +54,7 @@ are compiled by `go test`, so they cannot rot silently.
    the code rather than trusting the table
 5. CHANGELOG updated, examples compile
 6. Tag, then from a clean temporary consumer module run `go mod init`,
-   `go get github.com/kiliant/go-imap@<tag>`, and compile and test a small
+   `go get github.com/CaffeinatedTech/go-imap@<tag>`, and compile and test a small
    import of the library
 
 Do not mark a coverage row `verified` on the strength of unit tests. `verified`

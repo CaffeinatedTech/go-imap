@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/kiliant/go-imap"
-	"github.com/kiliant/go-imap/internal/imapwire"
+	"github.com/CaffeinatedTech/go-imap"
+	"github.com/CaffeinatedTech/go-imap/internal/imapwire"
 )
 
 func handleExpunge(ctx context.Context, c *conn, command *queuedCommand) error {

@@ -3,8 +3,8 @@ package imapserver
 import (
 	"fmt"
 
-	"github.com/kiliant/go-imap"
-	"github.com/kiliant/go-imap/internal/imapcodec"
+	"github.com/CaffeinatedTech/go-imap"
+	"github.com/CaffeinatedTech/go-imap/internal/imapcodec"
 )
 
 // UIDONLY (RFC 9586): once enabled, the connection stops using message sequence

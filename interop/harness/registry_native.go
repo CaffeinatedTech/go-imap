@@ -2,6 +2,6 @@
 
 package harness
 
-import "github.com/kiliant/go-imap/interop/definition"
+import "github.com/CaffeinatedTech/go-imap/interop/definition"
 
 var emulatedProfiles []definition.Profile

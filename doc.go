@@ -4,7 +4,7 @@
 //
 // This package performs no I/O and imports nothing else from this module. It is
 // the common ground between the client in
-// [github.com/kiliant/go-imap/imapclient] and the server framework planned for a
+// [github.com/CaffeinatedTech/go-imap/imapclient] and the server framework planned for a
 // later release, which is what allows the latter to be added without a breaking
 // change here.
 //

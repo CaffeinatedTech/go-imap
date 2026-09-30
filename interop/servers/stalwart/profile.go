@@ -1,6 +1,6 @@
 package stalwart
 
-import "github.com/kiliant/go-imap/interop/definition"
+import "github.com/CaffeinatedTech/go-imap/interop/definition"
 
 // Profile is the pinned Stalwart interoperability configuration.
 var Profile = definition.Profile{

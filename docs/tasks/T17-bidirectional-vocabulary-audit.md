@@ -96,7 +96,7 @@ client.
 
 ## Method
 
-Work from the type list, not from intuition. `go doc github.com/kiliant/go-imap`
+Work from the type list, not from intuition. `go doc github.com/CaffeinatedTech/go-imap`
 is the checklist; every exported symbol gets a verdict.
 
 For each, write down the answer to three questions:

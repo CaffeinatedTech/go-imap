@@ -11,8 +11,8 @@
 // It must be a version that actually contains what this module imports.
 // internal/imapcodec and internal/imapmessage landed after v1.0.0, so v1.1.0 is
 // the floor — see docs/RELEASING.md for the ordering that implies.
-module github.com/kiliant/go-imap/imapserver
+module github.com/CaffeinatedTech/go-imap/imapserver
 
 go 1.24
 
-require github.com/kiliant/go-imap v1.1.0
+require github.com/CaffeinatedTech/go-imap v1.2.0

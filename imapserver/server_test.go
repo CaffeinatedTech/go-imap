@@ -18,8 +18,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/kiliant/go-imap/imapclient"
-	"github.com/kiliant/go-imap/imapserver"
+	"github.com/CaffeinatedTech/go-imap/imapclient"
+	"github.com/CaffeinatedTech/go-imap/imapserver"
 )
 
 func TestLoopbackFrameworkLifecycle(t *testing.T) {

@@ -3,7 +3,7 @@
 ## Layering
 
 ```
-github.com/kiliant/go-imap          package imap
+github.com/CaffeinatedTech/go-imap          package imap
     core vocabulary: flags, mailbox attributes, envelope, body structure,
     search criteria, fetch items, status items, response codes, *Error.
     NO I/O. NO imports of sibling packages.

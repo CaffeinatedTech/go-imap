@@ -16,8 +16,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/kiliant/go-imap"
-	"github.com/kiliant/go-imap/internal/imapwire"
+	"github.com/CaffeinatedTech/go-imap"
+	"github.com/CaffeinatedTech/go-imap/internal/imapwire"
 )
 
 func TestGreetingCapabilitiesAndPipelining(t *testing.T) {

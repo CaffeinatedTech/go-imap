@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/kiliant/go-imap"
+	"github.com/CaffeinatedTech/go-imap"
 )
 
 // The X-GM-EXT-1 label store: the item name with its operation and

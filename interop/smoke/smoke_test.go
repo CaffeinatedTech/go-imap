@@ -8,7 +8,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/kiliant/go-imap/interop/harness"
+	"github.com/CaffeinatedTech/go-imap/interop/harness"
 )
 
 func TestAuthenticatedSmoke(t *testing.T) {

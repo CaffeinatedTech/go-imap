@@ -18,8 +18,8 @@ package main
 import (
 	"context"
 
-	"github.com/kiliant/go-imap"
-	"github.com/kiliant/go-imap/imapserver"
+	"github.com/CaffeinatedTech/go-imap"
+	"github.com/CaffeinatedTech/go-imap/imapserver"
 )
 
 // quotaSession is a Session that also answers QUOTA. Embedding the Session

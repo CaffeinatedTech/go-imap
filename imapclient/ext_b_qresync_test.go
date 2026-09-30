@@ -5,7 +5,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/kiliant/go-imap"
+	"github.com/CaffeinatedTech/go-imap"
 )
 
 const qresyncCaps = "IMAP4REV1 ENABLE CONDSTORE QRESYNC"

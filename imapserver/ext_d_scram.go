@@ -12,7 +12,7 @@ import (
 	"hash"
 	"strings"
 
-	"github.com/kiliant/go-imap"
+	"github.com/CaffeinatedTech/go-imap"
 )
 
 // SCRAM-SHA-1 and SCRAM-SHA-256 (RFC 5802, RFC 7677), server side.

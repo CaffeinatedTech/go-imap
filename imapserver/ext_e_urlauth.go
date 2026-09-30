@@ -4,7 +4,7 @@ import (
 	"context"
 	"io"
 
-	"github.com/kiliant/go-imap/internal/imapwire"
+	"github.com/CaffeinatedTech/go-imap/internal/imapwire"
 )
 
 // URLAUTH (RFC 4467), URLAUTH=BINARY (RFC 5524) and URL-PARTIAL (RFC 5550).

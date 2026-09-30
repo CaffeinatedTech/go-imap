@@ -8,7 +8,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/kiliant/go-imap/imapserver"
+	"github.com/CaffeinatedTech/go-imap/imapserver"
 )
 
 // TestStoreAcceptsBothFlagListForms pins both branches of store-att-flags:

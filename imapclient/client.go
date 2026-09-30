@@ -11,8 +11,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/kiliant/go-imap"
-	"github.com/kiliant/go-imap/internal/imapwire"
+	"github.com/CaffeinatedTech/go-imap"
+	"github.com/CaffeinatedTech/go-imap/internal/imapwire"
 )
 
 // Options configures a [Client]. The zero value is secure and valid; a nil

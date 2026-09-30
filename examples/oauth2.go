@@ -15,7 +15,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/kiliant/go-imap/imapclient"
+	"github.com/CaffeinatedTech/go-imap/imapclient"
 )
 
 func main() {

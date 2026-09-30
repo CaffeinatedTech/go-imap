@@ -15,7 +15,7 @@
 //     U+0020 SPACE; each character in Table B.1 (commonly mapped to
 //     nothing, e.g. soft hyphen, zero width characters) is deleted.
 //  2. Normalize: the mapped string is normalized to Unicode Normalization
-//     Form KC (NFKC), using [github.com/kiliant/go-imap/internal/unicodenorm.NFKC].
+//     Form KC (NFKC), using [github.com/CaffeinatedTech/go-imap/internal/unicodenorm.NFKC].
 //     SASLprep does not fold case; "USER" and "user" remain distinct.
 //  3. Prohibit: the normalized string must not contain any character from
 //     RFC 3454 Tables C.1.2, C.2.1, C.2.2, C.3, C.4, C.5, C.6, C.7, C.8 or
@@ -38,7 +38,7 @@
 // correctly, frozen to Unicode 3.2 (see internal/saslprep/gen/main.go).
 //
 // The NFKC normalization step, by contrast, uses
-// [github.com/kiliant/go-imap/internal/unicodenorm], whose tables are
+// [github.com/CaffeinatedTech/go-imap/internal/unicodenorm], whose tables are
 // generated from Unicode 15.0.0 (matching the Go toolchain's
 // unicode.Version at the time it was generated -- see
 // internal/unicodenorm/gen/main.go).
@@ -60,7 +60,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/kiliant/go-imap/internal/unicodenorm"
+	"github.com/CaffeinatedTech/go-imap/internal/unicodenorm"
 )
 
 // Prepare applies SASLprep (RFC 4013) to s, treating s as a query (RFC 3454
